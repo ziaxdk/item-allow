@@ -11,6 +11,7 @@
 
 
     <div class="pure-u-18-24">
+      <MapLoading :processing="false"></MapLoading>
       <World :countries="bothCountries"></World>
     </div>
 
@@ -31,6 +32,7 @@ import World from './components/MapContainer.vue'
 import ColMenu from './components/Menu.vue'
 import Loading from './components/Loading.vue'
 import CountryList from './components/CountryList.vue'
+import MapLoading from './components/MapLoading.vue'
 import { mapState, mapGetters } from 'vuex'
 
 export default {
@@ -42,7 +44,7 @@ export default {
     // }
   },
   components: {
-    World, ColMenu, Loading, CountryList
+    World, ColMenu, Loading, CountryList, MapLoading
   },
 }
 
@@ -54,6 +56,7 @@ export default {
 <style scoped>
   .pure-g, .pure-u-18-24 {
     height: 100%;
+    position: relative;
   }
 </style>
 

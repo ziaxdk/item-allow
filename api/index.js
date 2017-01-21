@@ -50,12 +50,14 @@ app.post('/api/countries', async (req, res)  => {
         }
       }
     ]});
+  if (answer.responses[0].hits.hits.length === 0) return res.send({ found: false });
   var doc = answer.responses[0].hits.hits[0]._source;
   var iso2 = doc.iso2;
   var docsAirports = await client.search({
     index: 'airports',
     type: 'airport',
     body: {
+      "size": 10000,
       "query": {
         "bool": {
           "must": {

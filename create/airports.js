@@ -45,7 +45,7 @@ var mapAndCreateIndex = function(cb) {
 
 var readAll = function(cb) {
   const rl = readline.createInterface({
-    input: fs.createReadStream('airports.dat')
+    input: fs.createReadStream('./data/airports/airports.dat')
   });
 
   rl.on('line', (line) => {
