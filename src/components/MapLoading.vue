@@ -1,12 +1,14 @@
 <template>
-  <div class="container" v-show="processing">
+  <div class="container" v-if="processing">
   </div>
 </template>
 
 <script>
 
 export default {
-  props: [ "processing" ]
+  props: {
+    processing: Boolean
+  }
 }
 </script>
 

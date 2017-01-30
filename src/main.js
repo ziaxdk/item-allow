@@ -15,5 +15,6 @@ const vueInstance = new Vue({
   template: '<App/>',
   components: { App }
 })
+window.vueInstance = vueInstance;
 
 // console.log('vueInstance', vueInstance);

@@ -8,6 +8,7 @@ const store = new Vuex.Store({
   state: {
     __loaded: [],
     loading: false,
+    mapProcessing: false,
     from: {
       countries: [],
       selected: true,
@@ -46,6 +47,9 @@ const store = new Vuex.Store({
         state.from.selected = false;
         state.to.selected = true;
       }
+    },
+    setMapProcessing(state, status) {
+      state.mapProcessing = status.processing;
     }
   },
   actions: {
@@ -58,6 +62,11 @@ const store = new Vuex.Store({
       var data = resp.data;
       if (state.__loaded.some(doc => doc === data.iso3)) return false;
       commit('addCountry', data);
+    },
+    mapProcessing({ commit, state }, status) {
+      // state.mapProcessing = true;
+      console.log('mapProcessing', status);
+      commit('setMapProcessing', status);
     }
   }
 })

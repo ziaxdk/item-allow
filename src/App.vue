@@ -11,7 +11,7 @@
 
 
     <div class="pure-u-18-24">
-      <MapLoading :processing="false"></MapLoading>
+      <MapLoading :processing="mapProcessing"></MapLoading>
       <World :countries="bothCountries"></World>
     </div>
 
@@ -37,7 +37,7 @@ import { mapState, mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['from', 'to', 'loading']),
+    ...mapState(['from', 'to', 'loading', 'mapProcessing']),
     ...mapGetters(['selected', 'bothCountries'])
     // fromAirports() {
     //   return this.from.countries.map(m => m.airports).reduce((acc, cur) => acc.push(cur), []);

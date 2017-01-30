@@ -6,7 +6,7 @@
  -->
     <Leaflet>
       <LeafletLayer v-for="country in countries" :key="country.name" :country="country"></LeafletLayer>
-      <LeafletAirportsLayer v-for="country in countries" :key="country.name" :country="country"></LeafletAirportsLayer>
+      <LeafletAirportsLayer v-for="country in countries" :key="country.name" :country="country" v-on:status="mapProcessing"></LeafletAirportsLayer>
     </Leaflet>  
 
 </template>
@@ -20,7 +20,12 @@ import LeafletAirportsLayer from './LeafletAirportsLayer.vue'
 
 export default {
   props: [ 'countries' ],
-  components: { Leaflet, LeafletLayer, LeafletAirportsLayer }
+  components: { Leaflet, LeafletLayer, LeafletAirportsLayer },
+  methods: {
+    mapProcessing(status) {
+      this.$store.dispatch('mapProcessing', status);
+    }
+  }
 }
 </script>
 
